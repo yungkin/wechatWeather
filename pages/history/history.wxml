@@ -1,0 +1,17 @@
+<!--pages/history/history.wxml-->
+ <view class="closeLocation" bindtap="goBack">
+   <text class="icon_return" ></text>
+  </view>
+
+   <view class="provice" wx:if="{{BrowsingHistory}}">
+      <view class="recently">最近访问</view>
+      <view class="cityList">
+        <view wx:for="{{BrowsingHistory}}" data-city="{{item.CityName}}" data-id="{{item.CityId}}" wx:key="item.CityId" bindtap="getCity">{{item.CityName}}</view>
+      </view>
+    </view>
+    <view class="provice" wx:for="{{cityList}}" wx:key="{{item.initial}}">
+      <view class="recently">{{item.initial}}</view>
+      <view class="cityList">
+        <view wx:for="{{item.cityInfo}}" wx:for-item="ct" wx:key="{{ct.id}}" data-city="{{ct.city}}" data-id="{{ct.id}}" bindtap="getCity">{{ct.city}}</view>
+      </view>
+    </view>

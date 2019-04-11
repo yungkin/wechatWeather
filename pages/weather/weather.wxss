@@ -1,0 +1,249 @@
+.container {
+  padding: 20rpx;
+  background: ivory;
+  height: 100%;
+} 
+
+.location{
+  color:#555;
+  padding:16rpx;
+  font-size:16px;
+  font-weight:bold;
+  text-align:center;
+  border-bottom:1px solid #ccc;
+}
+/*功能区样式-start*/
+.fucBtn{
+  width: 650rpx;
+  display:flex;
+  flex-flow:row nowrap;
+  justify-content:space-around;
+  align-content: flex-start;
+  margin: 10px;
+  
+}
+/*开关*/
+.switch{ 
+  display:flex;
+  flex-direction:row;
+  flex-grow: 3;
+  text-align: center;
+  line-height: 21px;
+  }
+  /*小功能*/
+.fuc{  display:flex;
+  flex-direction:row;
+  flex-grow: 1;}
+.fuc>text{
+  size: 16px;
+  margin: 5px 10px;
+  padding: 2px;
+  border-radius: 50%;
+  box-shadow: 0 0 5px black;}
+  .icon-search{border-radius: 50%;
+  box-shadow: 0 0 5px black;margin: 5px 10px;
+  padding: 2px;}
+/*提醒时间*/
+/*.remind{ 
+  width: 650rpx;
+  height: 250rpx;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content:space-around;
+  align-content: flex-start;
+  font-size: 14px;
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow:inset 0 0 5px #555;
+  }
+  .cont{  
+  display:flex;
+  flex-flow:row nowrap;
+  justify-content:space-around;
+  align-content: flex-end;
+}
+.myLabel{margin-left: 20px;}
+.picker{ 
+  font-style: italic;
+  width: 100px;
+  border: 1px solid #555;
+  border-top-left-radius: 20%;
+  border-top-right-radius: 5%;
+  border-bottom-left-radius: 5%;
+  border-bottom-right-radius: 35%;
+  
+  }
+.angle{
+  border: 5px solid;
+  border-color:  #555 transparent transparent transparent;
+}*/
+/*end*/
+/*swtich样式-start*/
+/*swtich整体大小*/
+.wx-switch-input{
+width:82rpx !important;
+height:45rpx !important;
+background: #ccc !important;
+border:#555 !important;
+}
+/*白色样式（false的样式）*/
+.wx-switch-input::before{
+width:80rpx !important;
+height: 41rpx !important;
+
+}
+/*绿色样式（true的样式）*/
+.wx-switch-input::after{
+width: 40rpx !important;
+height: 41rpx !important;
+
+}
+/*swtich样式end*/
+
+.circleActived{
+color: #fff;
+font-size: 14px;
+text-align: center;
+width: 50rpx;
+height: 50rpx;
+margin: 6rpx 8px;
+ border-radius:50%;
+ background: linear-gradient(#ccc,#000);
+}
+.circleLost{
+color: #fff;
+font-size: 14px;
+text-align: center;
+width: 50rpx;
+height: 50rpx;
+ margin: 6rpx 8px;
+ border-radius:50%;
+ background: #ccc;
+}
+
+.weather{
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow:inset 0 0 12px #999;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.png{
+  flex-grow: 2;
+}
+.image1{
+  width: 42px;
+  height: 30px;
+  padding: 15px;
+  border-right:1px solid blue;
+}
+.weatherInfo{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  font-size: 14px;
+  line-height: 20px;
+  border-left: 1px solid #ccc;
+  flex-grow: 1;
+  color:#0900e0;
+}
+
+.details{
+  width: 242px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-top: 20px;
+  box-shadow:inset 0 0 12px #999;
+  background: #fff;
+  padding:0 10px;
+}
+.weatherList{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+  align-items: center;
+  color: #800080;
+  margin: 4px 10px;
+  }
+.line{ width:100%;height: 2px; border: 1px solid #7070a5;}
+.hide{
+ display: none;
+}
+.show{ 
+ display: block;
+}
+.exponent{
+  color: #800080;
+  width: 242px;
+  border-bottom: 1px solid #7070a5;
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin: 10px;
+}
+
+/*********在线字体代码start*********/
+
+@font-face {
+    font-family: 'iconfont';
+    /* project id 706535 */
+    src: url('//at.alicdn.com/t/font_706535_gcxl9md3eyj.eot');
+    src: url('//at.alicdn.com/t/font_706535_gcxl9md3eyj.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_706535_gcxl9md3eyj.woff') format('woff'), url('//at.alicdn.com/t/font_706535_gcxl9md3eyj.ttf') format('truetype'), url('//at.alicdn.com/t/font_706535_gcxl9md3eyj.svg#iconfont') format('svg');
+}
+
+/*********在线字体代码end*********/
+
+/*********字体文件中的代码start*********/
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon_back::before {
+    content: "\e62c";
+}
+
+.icon_close::before {
+    content: "\e628";
+}
+
+.icon_refresh::before {
+    content: "\e732";
+}
+
+.icon_jiantou_bottom::before {
+    content: "\e605"
+}
+
+.icon_jiantou_top::before {
+    content: "\e733"
+}
+
+.icon_bill::before {
+    content: "\e627";
+}
+
+.icon_edit::before {
+    content: "\e63b";
+}
+
+.icon_edit_pen::before {
+    content: "\e609";
+}
+
+.icon_right_jiantou::before {
+    content: "\e7a5"
+}
+
+/*********字体文件中的代码end*********/

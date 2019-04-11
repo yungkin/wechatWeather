@@ -1,0 +1,68 @@
+/* pages/history/history.wxss */
+
+ .provice{
+  height: auto;
+}
+
+ .provice .recently{
+  height: 90rpx;
+  line-height: 90rpx;
+  color: #999999;
+  padding-left: 30rpx;
+}
+ .provice  .cityList{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+ .provice  .cityList view{
+  background: #fff;
+  height: 88rpx;
+  border-right: 1px solid #f4f4f4;
+  border-bottom: 1px solid #f4f4f4;
+  width: 25%;
+  overflow: hidden;
+  box-sizing: border-box;
+  text-align: center;
+  line-height: 88rpx;
+}
+.icon_return{
+ width: 7px;
+ height: 7px;
+ border-top: 2px solid #867f7a;
+ border-left: 2px solid #867f7a;
+ transform: rotate(-45deg); 
+  margin: 5px -50px 0 10px;
+  display: block;
+}
+
+/*********在线字体代码start*********/
+
+@font-face {
+    font-family: 'iconfont';
+    /* project id 706535 */
+    src: url('//at.alicdn.com/t/font_706535_gcxl9md3eyj.eot');
+    src: url('//at.alicdn.com/t/font_706535_gcxl9md3eyj.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_706535_gcxl9md3eyj.woff') format('woff'), url('//at.alicdn.com/t/font_706535_gcxl9md3eyj.ttf') format('truetype'), url('//at.alicdn.com/t/font_706535_gcxl9md3eyj.svg#iconfont') format('svg');
+}
+
+/*********在线字体代码end*********/
+/*********字体文件中的代码start*********/
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon_back::before {
+    content: "\e62c";
+}
+
+.icon_close::before {
+    content: "\e628"; 
+}
+.icon_right_jiantou::before {
+    content: "\e7a5"
+}
