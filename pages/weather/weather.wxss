@@ -1,19 +1,29 @@
+page{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-image: url('https://cdn.pixabay.com/photo/2019/06/20/09/26/underwater-4286600_960_720.jpg');
+  /* background-image: url("cloud://production-d0x82.7072-production-d0x82-1300475364/project/bg2_960_720.webp"); */
+   background-repeat:no-repeat;
+   background-attachment: fixed;
+   background-size: 100% 100%;
+}
 .container {
-  padding: 20rpx;
-  background: ivory;
+  /* padding: 20rpx; */
+  /* background: ivory; */
+  position: relative;
   height: 100%;
-
 } 
 .actionSheet{width:86%;height: 60rpx;
-line-height: 60rpx;text-align: center;background: #ccc;padding: 10rpx;
+line-height: 60rpx;text-align: center;background: rgb(49, 177, 228);padding: 10rpx;
 border-radius: 20rpx;margin-top: 60rpx;}
 .location{
-  color:#555;
+  color: #000;
   padding:16rpx;
-  font-size:32rpx;
+  font-size:36rpx;
   font-weight:bold;
   text-align:center;
-  border-bottom:1px solid #ccc;
+  border-bottom:1px solid rgb(190, 187, 187);
 }
 /*功能区样式-start*/
 .fucBtn{
@@ -41,8 +51,8 @@ border-radius: 20rpx;margin-top: 60rpx;}
   margin-left: 10rpx;}
 .fuc>text{
   size: 36rpx;
-margin: 0 20rpx;
-padding: 14rpx;
+  margin: 0 20rpx;
+  padding: 14rpx;
   border-radius: 50%;
   box-shadow: 0 0 10rpx black;}
   .icon-search{
@@ -108,8 +118,8 @@ margin-top: -5rpx;
 .wx-switch-input{
 width:82rpx !important;
 height:45rpx !important;
-background: #ccc !important;
-border:#555 !important;
+/* background: #ccc !important;
+border:#555 !important; */
 }
 /*白色样式（false的样式）*/
 .wx-switch-input::before{
@@ -128,10 +138,10 @@ height: 41rpx !important;
 .weather{
   width: 86%;
   margin-top: 32rpx;
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
   border-radius: 20rpx;
-  box-shadow:inset 0 0 24rpx #999;
-  background: #fff;
+  /* box-shadow:inset 0 0 24rpx #999;
+  background: #fff; */
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -152,13 +162,13 @@ height: 41rpx !important;
   padding: 20rpx;
   font-size: 28rpx;
   line-height: 40rpx;
-  border-left: 1px solid #ccc;
+  /* border-left: 1px solid #ccc; */
   flex-grow: 1;
-  color:rgba(0,0,0,.8);
+  color:#fff;
 }
 .weatherInfo>text:nth-child(1){
 font-size:38rpx;
-color: #0900e0;
+color: gold;
 margin: 30rpx;
 animation: changColor 6s;
 }
@@ -167,7 +177,7 @@ animation: changColor 6s;
   0%{color:#6bddc4;}
   25%{color:#7e7bdd;}
   50%{color:#e7e96f;}
-  100%{color:#e068f0;}
+  100%{color:#0900e0;}
 }
 
 .details{
@@ -176,28 +186,30 @@ animation: changColor 6s;
   border: 1px solid #ccc;
   border-radius: 20rpx;
   margin-top: 60rpx;
-  box-shadow:inset 0 0 24rpx #999;
-  background: #fff;
+  /* box-shadow:inset 0 0 24rpx #999; */
+  /* background: #fff; */
   padding:0 20rpx;
   transition: 2s;
 }
 .Todayweather text{
   margin-left:90rpx;
-  color: #800080;
+  /* color: #800080; */
+  color: #fff;
   line-height: 52rpx;
-  margin-top: 20rpx;
-    transition: 2s;
+   transition: 2s;
   }
+
 .weatherList{
   display: flex;
   flex-direction: row;
   justify-content:space-around;
   align-items: center;
-  color: #800080;
+  /* color: #800080; */
+  color: #fff;
   margin: 10rpx 0;
    
   }
-.line{ width:90%;height: 4rpx; border: 1px solid #7070a5;margin: 20rpx;}
+.line{ width:90%;height: 2rpx; border: 1px solid #7070a5;margin: 20rpx;}
 .hide{
  display: none;
   transition: 2s;
@@ -207,16 +219,20 @@ animation: changColor 6s;
    transition: 2s;
 }
 .exponent{
-  color: #800080;
+  /* color: #800080; */
+  color: #fff;
   border-bottom: 1px solid #7070a5;
   font-size: 30rpx;
   letter-spacing: 4px;
-  margin: 20rpx;
+  /* margin: 20rpx; */
   padding: 10rpx;
 }
+ .exponent .jiantou{
+    margin-left: 30rpx;
+  }
 .tipt{
   font-size: 36rpx;
-  color: #0900e0;
+  color: gold;
   animation: tips 3s;
 }
 @keyframes tips

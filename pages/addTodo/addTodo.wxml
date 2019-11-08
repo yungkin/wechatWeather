@@ -2,7 +2,7 @@
 <view class="container">
 
 <view class="section">
-  <form bindsubmit="bindFormSubmit" report-submit="report">
+  <form bindsubmit="bindFormSubmit" report-submit="{{true}}">
     <input name="title" placeholder="请输入文章标题" class="title"></input>
     <textarea auto-focus name="textarea" class="textarea" />
     <block wx:if="{{image}}">

@@ -5,6 +5,6 @@
   flex-direction: column;
   justify-content: space-between;
   align-items:center; 
-  padding: 200rpx 0;
+  padding: 80rpx 0 100rpx 0;
   box-sizing: border-box;
 } 

@@ -1,5 +1,5 @@
 <view class="container">
-  <!--城市名称-->
+  <!--城市名称--> 
   <view class="location">
     <text>{{currentCity}}</text>
   </view>
@@ -46,7 +46,7 @@
         <view class="Todayweather {{showView?'show':'hide'}}"  bindtap="showData">
           <text>{{weatherData.weekD}}</text>
           <text>{{weatherData.temperature}}</text>
-          <text class="iconfont icon_jiantou_bottom"></text>
+          <text class="iconfont icon_jiantou_bottom "></text>
         </view>
         <view class="Todayweather {{showView?'show':'hide'}}" bindtap="showData">
           <text>{{weatherData.weather}}</text>
@@ -74,7 +74,7 @@
         <view bindtap='showData'>
           <text class="tipt">{{indexData[0].tipt}}:</text>
           <text decode="{{true}}">&nbsp;&nbsp;{{indexData[0].zs}}&emsp;&emsp;&emsp;&nbsp;</text>
-          <text class="iconfont icon_jiantou_top" decode="{{true}}">\n</text> 
+          <text class="iconfont icon_jiantou_top jiantou" decode="{{true}}">\n</text> 
           <text decode="{{true}}">{{indexData[0].des}}</text>
         </view>
       </view>

@@ -12,6 +12,9 @@ Page({
 pageData: {
 
 },
+edit:function() {
+
+  },
 confirm: function(){
     todos.doc(this.pageData.id).update({
       // data 传入需要局部更新的数据
@@ -34,7 +37,10 @@ confirm: function(){
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      console.log(options)
+      // console.log(options)
+    wx.setNavigationBarTitle({
+      title: '查看内容'
+    })
       this.pageData.id = options.id 
       todos.doc(options.id).get().then( res =>{
         console.log(res)

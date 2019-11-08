@@ -108,7 +108,7 @@ Page({
     })
   },
   bindFormSubmit(event){
-    console.log(event.detail.value)
+    // console.log(event.detail.value)
     todos.add({
       data: {
         title: event.detail.value.title,
@@ -145,7 +145,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.setNavigationBarTitle({
+      title: '添加'
+    })
   },
 
 })

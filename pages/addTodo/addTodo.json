@@ -1,8 +1,5 @@
 {
   "usingComponents": {
-    "van-row": "vant-weapp/row",
-    "van-col": "vant-weapp/col",
-    "van-datetime-picker": "vant-weapp/datetime-picker",
-    "van-popup": "vant-weapp/popup"
+    
   }
 }

@@ -14,7 +14,7 @@
      </view>
     </block>
    <view class="btnfooter">
-       <van-button size="small" disabled="">修改</van-button>
+       <van-button size="small" type="default" bindtap="edit">修改</van-button>
     <van-button size="small" type="danger" bindtap="confirm">确认完成</van-button>
    </view>  
   </view>
