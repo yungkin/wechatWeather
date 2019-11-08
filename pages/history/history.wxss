@@ -1,5 +1,9 @@
 /* pages/history/history.wxss */
-
+.content{
+  width: 100%;
+  height: 100%;
+  background: ivory;
+}
  .provice{
   height: auto;
 }
@@ -16,10 +20,10 @@
   flex-wrap: wrap;
 }
  .provice  .cityList view{
-  background: #fff;
+
   height: 88rpx;
-  border-right: 1px solid #f4f4f4;
-  border-bottom: 1px solid #f4f4f4;
+  border-right: 1px solid #fff;
+  border-bottom: 1px solid #fff;
   width: 25%;
   overflow: hidden;
   box-sizing: border-box;
@@ -27,12 +31,13 @@
   line-height: 88rpx;
 }
 .icon_return{
- width: 7px;
- height: 7px;
+background: #fff;
+ width: 14rpx;
+ height: 14rpx;
  border-top: 2px solid #867f7a;
  border-left: 2px solid #867f7a;
  transform: rotate(-45deg); 
-  margin: 5px -50px 0 10px;
+  margin: 4rpx 20rpx;
   display: block;
 }
 

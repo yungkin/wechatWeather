@@ -1,0 +1,46 @@
+/* pages/addTodo/addTodo.wxss */
+page{
+  background-color: #ccc;
+  margin: 0;
+  padding: 0;
+}
+.container{
+ padding: 20rpx;
+}
+.section{
+  padding: 40rpx;
+}
+.title{
+  border: 1px solid #555;
+   padding: 20rpx;
+   background: #fff;
+}
+.textarea{
+  width: 700rpx;
+  height: 300rpx;
+  border: 1px solid #555;
+  word-wrap: break-word;
+  word-break: break-all; 
+  text-indent: 20rpx;
+    background: #fff;
+}
+.img{
+  width: 260rpx;
+  height: 200rpx;
+}
+
+.img image{
+  width: 100%;
+  height: 100%;
+}
+.isImport{
+  padding: 28rpx;
+    border-bottom: 1px solid #ccc;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+
+}
+.star{
+  margin-right: 120rpx;
+}

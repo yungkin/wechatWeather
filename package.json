@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "vant-weapp": "^0.5.23"
+  },
+  "name": "01weather",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "yung <firm_bird@outlook.com>",
+  "license": "MIT"
+}

@@ -1,0 +1,53 @@
+<!--pages/addTodo/addTodo.wxml-->
+<view class="container">
+
+<view class="section">
+  <form bindsubmit="bindFormSubmit" report-submit="report">
+    <input name="title" placeholder="请输入文章标题" class="title"></input>
+    <textarea auto-focus name="textarea" class="textarea" />
+    <block wx:if="{{image}}">
+      <view class="img">
+          <image src="{{image}}"></image>
+      </view>
+    </block>
+    <view class="isImport" >
+     <text>设置为重要？</text>
+     <view bindtap="isImportant" class="star">
+      <block wx:if="{{important}}">
+          <van-icon name="star-o" color="orange" size="20px"/>
+      </block>
+      <block wx:else>
+          <van-icon name="star-o" />
+        </block>
+      </view>
+    </view>
+   <view class="timePick">
+      <van-cell title="选择截止时间" value="{{ setTimer }}" is-link bind:click="showPopup" />
+      <van-popup show="{{ showTimer }}" bind:close="onClose" closeable
+  position="bottom" > 
+        <van-datetime-picker
+          type="datetime"
+          value="{{ currentDate }}"
+          min-date="{{ minDate }}"
+          min-hour="{{ minHour }}"
+          max-hour="{{ maxHour }}"
+          bind:input="onTimer"
+          bind:confirm="onConfirm"
+          bind:cancel="onCancel"
+          bind:change="onChange"
+        />
+        </van-popup>
+        
+   </view>
+    <button form-type="submit" type="primary" style="margin-top: 24rpx;">确认</button>
+    <van-tabbar >
+        <!-- <van-tabbar-item icon="clear" bindtap="clear"></van-tabbar-item> -->
+        <van-tabbar-item icon="photo" bindtap="selectImg"></van-tabbar-item>
+        <!-- <van-tabbar-item icon="volume"></van-tabbar-item> -->
+        <van-tabbar-item icon="location" bindtap="chooseLoc"></van-tabbar-item>
+    </van-tabbar>
+
+  </form>
+  </view>
+
+</view>

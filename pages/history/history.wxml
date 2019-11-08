@@ -1,7 +1,9 @@
 <!--pages/history/history.wxml-->
- <view class="closeLocation" bindtap="goBack">
+<view class="content">
+
+ <!-- <view class="closeLocation" bindtap="goBack">
    <text class="icon_return" ></text>
-  </view>
+  </view> -->
 
    <view class="provice" wx:if="{{BrowsingHistory}}">
       <view class="recently">最近访问</view>
@@ -15,3 +17,5 @@
         <view wx:for="{{item.cityInfo}}" wx:for-item="ct" wx:key="{{ct.id}}" data-city="{{ct.city}}" data-id="{{ct.id}}" bindtap="getCity">{{ct.city}}</view>
       </view>
     </view>
+
+</view>

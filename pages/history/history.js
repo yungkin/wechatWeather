@@ -7,6 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    temperature: [],
+    Currtemp: "",
     array: [
       {
         id: 0,
@@ -106,17 +108,33 @@ Page({
     var changeCity = this.data.city;
     getWeather.getWeather2(changeCity, function (data) {
       var results = data.results[0];
-      console.log(data.results[0]);
-
+     // console.log(data.results[0]);
       var futureWeather = results.weather_data;
+      //把温度提取出来
+      for (var i in futureWeather) {
+        var temp = futureWeather[i].temperature;
+        //console.log(temp);
+        that.data.temperature.push(temp);
+      }
       var indexResults = results.index;
+      //将今日天气的数据提取
       var str = futureWeather[0].date;
-      var temp = str.slice(9);
+      that.data.Currtemp = str.slice(14, 16);
+
       var wdate = str.slice(0, 9);
+      var weekD = str.slice(0, 3);
+      //未来三天
+      var futureWeather2 = futureWeather.slice(1);
       //图片操作
       var curWeather = futureWeather[0].weather;
       switch (curWeather) {
         case "晴":
+          var src1 = "../../images/d00.gif";
+          var src2 = "../../images/n00.gif";
+          that.data.array[0].src = src1;
+          that.data.array[1].src = src2;
+          break;
+        case "多云转晴":
           var src1 = "../../images/d00.gif";
           var src2 = "../../images/n00.gif";
           that.data.array[0].src = src1;
@@ -134,6 +152,12 @@ Page({
           that.data.array[0].src = src1;
           that.data.array[1].src = src2;
           break;
+        case "多云转阴":
+          var src1 = "../../images/d02.gif";
+          var src2 = "../../images/n02.gif";
+          that.data.array[0].src = src1;
+          that.data.array[1].src = src2;
+          break;
         case "阵雨":
           var src1 = "../../images/d03.gif";
           var src2 = "../../images/n03.gif";
@@ -146,19 +170,61 @@ Page({
           that.data.array[0].src = src1;
           that.data.array[1].src = src2;
           break;
-        case "小雨" || "大雨转小雨":
+        case "小雨":
           var src1 = "../../images/d07.gif";
           var src2 = "../../images/n07.gif";
           that.data.array[0].src = src1;
           that.data.array[1].src = src2;
           break;
-        case "中雨" || "小雨转中雨":
+        case "大雨转小雨":
+          var src1 = "../../images/d07.gif";
+          var src2 = "../../images/n07.gif";
+          that.data.array[0].src = src1;
+          that.data.array[1].src = src2;
+          break;
+        case "多云转小雨":
+          var src1 = "../../images/d07.gif";
+          var src2 = "../../images/n07.gif";
+          that.data.array[0].src = src1;
+          that.data.array[1].src = src2;
+          break;
+        case "中雨转小雨":
+          var src1 = "../../images/d07.gif";
+          var src2 = "../../images/n07.gif";
+          that.data.array[0].src = src1;
+          that.data.array[1].src = src2;
+          break;
+        case "中雨":
           var src1 = "../../images/d08.gif";
           var src2 = "../../images/n08.gif";
           that.data.array[0].src = src1;
           that.data.array[1].src = src2;
           break;
-        case "大雨" || "中雨转大雨":
+        case "小雨转中雨":
+          var src1 = "../../images/d08.gif";
+          var src2 = "../../images/n08.gif";
+          that.data.array[0].src = src1;
+          that.data.array[1].src = src2;
+          break;
+        case "大雨转中雨":
+          var src1 = "../../images/d08.gif";
+          var src2 = "../../images/n08.gif";
+          that.data.array[0].src = src1;
+          that.data.array[1].src = src2;
+          break;
+        case "大雨":
+          var src1 = "../../images/d09.gif";
+          var src2 = "../../images/n09.gif";
+          that.data.array[0].src = src1;
+          that.data.array[1].src = src2;
+          break;
+        case "中雨转大雨":
+          var src1 = "../../images/d09.gif";
+          var src2 = "../../images/n09.gif";
+          that.data.array[0].src = src1;
+          that.data.array[1].src = src2;
+          break;
+        case "小雨转大雨":
           var src1 = "../../images/d09.gif";
           var src2 = "../../images/n09.gif";
           that.data.array[0].src = src1;
@@ -181,14 +247,17 @@ Page({
       let pages = getCurrentPages(); //当前页面
       let prevPage = pages[pages.length - 2]; //上一页面
 
-      prevPage.setData({ //直接给上移页面赋值
+      prevPage.setData({ //直接给上一页面赋值
         currentCity: changeCity,
         "weatherData.pm25": results.pm25,
-        "weatherData.temp": temp,
+        "weatherData.temp": that.data.Currtemp + "℃",
         "weatherData.weather": futureWeather[0].weather,
         "weatherData.date": wdate,
         "weatherData.wind": futureWeather[0].wind,
-        futureWeather: futureWeather,
+        "weatherData.weekD": weekD,
+        "weatherData.temperature": that.data.temperature[0],
+        temperature: that.data.temperature,
+        futureWeather: futureWeather2,
         indexData: indexResults,
         'array': that.data.array
       });

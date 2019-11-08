@@ -1,6 +1,7 @@
- <view class="closeLocation" bindtap="goBack">
+<view class="content">
+ <!-- <view class="closeLocation" bindtap="goBack">
    <text class="icon_return " ></text>
-  </view>
+  </view> -->
    <view class="currentArea" bindtap="myCity" wx:if="{{currentCity}}">
     当前定位城市：
     <text>{{currentCity}}</text>
@@ -38,3 +39,4 @@
     </view>
   </view>
 </scroll-view>
+</view>

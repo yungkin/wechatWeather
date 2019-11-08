@@ -57,10 +57,21 @@ function getWeather(latitude, longitude, callback) {
 function loadWeatherData(callback) {
   //调用
   getLocation(function (success, latitude, longitude) {
-    getWeather(latitude, longitude, function (weatherData) {
-      callback(weatherData);
-    });
+    if (success == false) {
+      var lat = 27.8;
+      var longit = 118.03;
+      getWeather(lat, longit, function (weatherData) {
+        callback(weatherData);
+      
+      });
+      console.log(501);
+      }else{
+      getWeather(latitude, longitude, function (weatherData) {
+        callback(weatherData);
+      });
+      }
   });
+
 }
 //获取城市
 function getWeather2(city, callback) {
@@ -84,7 +95,6 @@ module.exports = {
   formatTimeHour: formatTimeHour,
   getWeather2: getWeather2,
   loadWeatherData: loadWeatherData
-
 }
 
 

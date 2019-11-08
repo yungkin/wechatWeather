@@ -6,13 +6,13 @@
   <!--小功能模块，用户点击时跳转到另一个页面-->
   <view class="fucBtn">
     <view class="switch">
-      <view class="{{circleActived}}">
-        <text>℃</text>
+      <view class="{{circleActived}}" bindtap="switchCg" id='2'>
+        <text >℃</text>
       </view>
       <switch checked='true' bindchange="switchCg" id="{{id}}">
       </switch>
-      <view class="{{circleLost}}">
-        <text>℉</text>
+      <view class="{{circleLost}}" bindtap="switchCg" id='1'>
+        <text >℉</text>
       </view>
     </view>
     <view class="fuc">
@@ -24,66 +24,78 @@
     </view>
   </view>
 
-   
+
   <!--显示当前位置，当天查询时刻天气情况-->
   <view class="weather">
-    <view class="png" wx:for="{{array}}" wx:for-item="item" wx:key="index"> 
-    <!-- <view class="png_title">{{item.text}}</view> -->
-      <view class="png_ctn">
-        <image class="image1" mode="{{item.mode}}" src="{{item.src}}"></image>
-      </view>
+    <view class="png" wx:for="{{array}}" wx:for-item="item" wx:key="index">
+      <!-- <view class="png_title">{{item.text}}</view> -->
+      <!-- <view class="png_ctn"> </view> -->
+      <image class="image1" mode="{{item.mode}}" src="{{item.src}}"></image>
     </view>
-   <view class="weatherInfo">
-      <text>{{weatherData.date}}</text>
-      <text>{{weatherData.temp}}</text>
+    <view class="weatherInfo">
+     <text decode="{{true}}">实时：&nbsp;{{weatherData.temp}}</text>
       <text>{{weatherData.weather}}</text>
-      <text>PM2.5: {{weatherData.pm25}}</text>
+      <text decode="{{true}}">PM2.5：&nbsp;{{weatherData.pm25}}</text>
       <text>{{weatherData.wind}}</text>
+       <text>{{weatherData.date}}</text>
     </view>
   </view>
   <!--通过循环把未来几天的详细天气指数横向排列，
   参数不用详细列出，用户点击时再显示-->
-  <view class="details" >
-  <block wx:for="{{futureWeather}}" wx:key="{{index}}" wx:for-index ="Bindex" > 
-    <view class="{{showView?'show':'hide'}}" data-Bindex="{{Bindex}}" bindtap="showData" >
-      <view class="weatherList"> 
-      <text>{{item.date}}</text>
-      <text>{{item.temperature}}</text>
-      </view>
-      <view class="weatherList">
-      <text>{{item.weather}}</text> 
-      <text>{{item.wind}}</text>
-      <text class="iconfont icon_jiantou_bottom"></text>
-      </view>
-       <view class="line"></view>
-    </view>
+  <view class="details">
+        <view class="Todayweather {{showView?'show':'hide'}}"  bindtap="showData">
+          <text>{{weatherData.weekD}}</text>
+          <text>{{weatherData.temperature}}</text>
+          <text class="iconfont icon_jiantou_bottom"></text>
+        </view>
+        <view class="Todayweather {{showView?'show':'hide'}}" bindtap="showData">
+          <text>{{weatherData.weather}}</text>
+          <text>{{weatherData.wind}}</text>
+        </view>
+        <view class="line {{showView?'show':'hide'}}"></view>
+    <block wx:for="{{futureWeather}}" wx:key="{{index}}" wx:for-index="Bindex">
+      <view class="{{showView?'show':'hide'}}" data-Bindex="{{Bindex}}" >
+          <view class="weatherList">
+            <text>{{item.date}}</text>
+            <text>{{temperature[Bindex+1]}}</text>
+          </view>
+          <view class="weatherList">
+            <text>{{item.weather}}</text>
+            <text>{{item.wind}}</text>
+          </view>
+          <view class="line"></view>
+        </view>
     </block>
-     
+
     <view class=" {{showView?'hide':'show'}}">
-          <!-- <block wx:for="{{indexData}}" wx:key="{{index}}"> 
+      <!-- <block wx:for="{{indexData}}" wx:key="{{index}}"> 
           </block> -->
-           <view class="exponent">
-            <view bindtap='showData'>
-            <text decode="{{true}}">{{indexData[0].tipt}}:&nbsp;{{indexData[0].zs}}</text>
-            <text decode="{{true}}">{{indexData[0].des}}</text>
-            </view>
-          </view>
-           <view class="exponent">
-            <view bindtap='showData'>
-            <text decode="{{true}}">{{indexData[2].tipt}}:&nbsp;&nbsp;{{indexData[2].zs}}</text>
-            <text decode="{{true}}">{{indexData[2].des}}</text>
-            </view>
-          </view>
-           <view class="exponent">
-            <view bindtap='showData'>
-            <text decode="{{true}}">{{indexData[4].tipt}}:&nbsp;&nbsp;{{indexData[4].zs}}</text>
-            <text decode="{{true}}">{{indexData[4].des}}</text>
-            </view>
-          </view>
+      <view class="exponent">
+        <view bindtap='showData'>
+          <text class="tipt">{{indexData[0].tipt}}:</text>
+          <text decode="{{true}}">&nbsp;&nbsp;{{indexData[0].zs}}&emsp;&emsp;&emsp;&nbsp;</text>
+          <text class="iconfont icon_jiantou_top" decode="{{true}}">\n</text> 
+          <text decode="{{true}}">{{indexData[0].des}}</text>
+        </view>
+      </view>
+      <view class="exponent">
+        <view bindtap='showData'>
+          <text class="tipt">{{indexData[2].tipt}}:</text>
+          <text decode="{{true}}">&nbsp;&nbsp;{{indexData[2].zs}}\n</text>
+          <text decode="{{true}}">{{indexData[2].des}}</text>
+        </view>
+      </view>
+      <view class="exponent">
+        <view bindtap='showData'>
+          <text class="tipt">{{indexData[4].tipt}}:</text>
+          <text decode="{{true}}">&nbsp;&nbsp;{{indexData[4].zs}}\n</text>
+          <text decode="{{true}}">{{indexData[4].des}}</text>
+        </view>
+      </view>
     </view>
-  </view>
-  
-  <!--<view class="remind">
+    </view>
+
+    <!--<view class="remind">
       <text class="myLabel">设置提醒时间：</text>
       <view class="cont">
         <picker mode="date" value="{{date}}" start="{{date}}" end="2030-03-10" bindchange="ChangDate">
@@ -108,4 +120,9 @@
       </view>
     </view>-->
 
-</view>
+  <view class="actionSheet">
+  <text bindtap="LsAction">反馈问题</text>
+
+  </view>
+  
+  </view>

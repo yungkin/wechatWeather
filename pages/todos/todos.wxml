@@ -1,0 +1,62 @@
+<!--pages/todos/todos.wxml-->
+  <view class="todos-container">
+  <!-- 头部菜单 -->
+  <view class="navtab">
+    <van-tabbar class="bar-bg" fixed="{{fixed}}" active="{{ tabactive }}"  active-color="#07c160"
+  inactive-color="#000" bind:change="onTabChange">
+        <van-tabbar-item icon="home-o" bindtap="viewCenter"></van-tabbar-item>
+        <van-tabbar-item icon="plus" bindtap="godoAdd"></van-tabbar-item>
+        <van-tabbar-item icon="setting-o"></van-tabbar-item>
+    </van-tabbar>
+    </view>
+
+    <view class="navSide" hidden="{{isHide}}">
+        <van-collapse value="{{ activeNames }}" bind:change="onSideChange" class="collapse">
+        <van-collapse-item title="个人中心" name="1">
+
+          <block wx:if="{{userInfo}}">
+          <view class="userinfo">
+            <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+            <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+          </view>
+          </block>
+          </van-collapse-item>
+              
+         <van-collapse-item title="重要事项" name="2" icon="star-o">
+              <block wx:for="{{tasks}}" wx:key="item.isImportant" wx:if="{{item.isImportant}}">
+                <navigator url="../todoInfo/todoInfo?id={{item._id}}">
+                <van-cell title="{{item.title}}" is-link  />
+                </navigator>
+              </block>
+          </van-collapse-item>
+          <van-collapse-item title="待开发" name="3" icon="star-o">
+              敬请期待
+          </van-collapse-item>
+          <van-collapse-item title="待开发" name="4" icon="star-o">
+              敬请期待
+          </van-collapse-item>
+            <van-collapse-item name="5">
+            <view slot="title">帮助<van-icon name="question-o" /></view>
+              请在技艺七色公众号(微信号：
+RB_SKILL)反馈问题。
+          </van-collapse-item>
+         
+          </van-collapse>
+    </view>
+
+    <view class="content">
+      <block wx:for="{{tasks}}" wx:key="item">
+        <navigator url="../todoInfo/todoInfo?id={{item._id}}">
+         <van-cell title="{{item.title}}" is-link value="{{item.time == null? '' : item.time}}" />
+        </navigator>
+      </block>
+    <!-- <van-cell title="单元格" is-link icon="location-o" />
+   
+    <van-cell title="单元格" is-link value="内容" arrow-direction="down" /> -->
+    
+    </view>
+  <!-- <view>
+     <van-button type="primary">按钮</van-button>
+  </view> -->
+  </view>
+

@@ -1,0 +1,23 @@
+<!--pages/todoInfo/todoInfo.wxml-->
+<view class="container">
+<van-panel class="panel" title="{{task.title}}" desc="" status="{{task.status === 1? '已完成':'待完成'}}" use-footer-slot>
+  <view class="content">{{task.textarea}}</view>
+   <block wx:if="{{task.image}}">
+      <view class="img">
+          <image src="{{task.image}}"></image>
+      </view>
+    </block>
+  <view slot="footer">
+    <block wx:if="{{task.location.address}}">
+     <view class="addr" bindtap="viewLoc">
+       <van-icon name="location" />{{task.location.address}}
+     </view>
+    </block>
+   <view class="btnfooter">
+       <van-button size="small" disabled="">修改</van-button>
+    <van-button size="small" type="danger" bindtap="confirm">确认完成</van-button>
+   </view>  
+  </view>
+</van-panel>
+
+</view>

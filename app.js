@@ -1,11 +1,30 @@
 //app.js
 App({
-  onLaunch: function () {
+  onLaunch: function (options) {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
 
+    // 初始化云开发
+      if(!wx.cloud){
+        alert("请升级到最新微信开发者工具版本")
+      }else{
+        wx.cloud.init({
+          env:"production-d0x82",
+          traceUser: true
+        })
+      }
+    // 获取手机系统信息
+    wx.getSystemInfo({
+      success: res => {
+        //导航高度
+        this.globalData.navHeight = res.statusBarHeight + 46;
+      }, fail(err) {
+        console.log(err);
+      }
+    })
+  
     // 登录
     wx.login({
       success: res => {
@@ -34,6 +53,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    navHeight: 0,
   }
 })
