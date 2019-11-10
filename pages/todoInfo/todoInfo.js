@@ -43,7 +43,7 @@ confirm: function(){
     })
       this.pageData.id = options.id 
       todos.doc(options.id).get().then( res =>{
-        console.log(res)
+        // console.log(res)
         this.setData({
           task: res.data
         })

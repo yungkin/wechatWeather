@@ -10,11 +10,11 @@
   <view slot="footer">
     <block wx:if="{{task.location.address}}">
      <view class="addr" bindtap="viewLoc">
-       <van-icon name="location" />{{task.location.address}}
+       <van-icon name="location" />{{task.location.name}}
      </view>
     </block>
    <view class="btnfooter">
-       <van-button size="small" type="default" bindtap="edit">修改</van-button>
+       <!-- <van-button size="small" type="default" bindtap="edit">修改</van-button> -->
     <van-button size="small" type="danger" bindtap="confirm">确认完成</van-button>
    </view>  
   </view>

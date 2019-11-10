@@ -3,13 +3,43 @@
 
 <view class="section">
   <form bindsubmit="bindFormSubmit" report-submit="{{true}}">
-    <input name="title" placeholder="请输入文章标题" class="title"></input>
-    <textarea auto-focus name="textarea" class="textarea" />
-    <block wx:if="{{image}}">
+    <!-- <input name="title" placeholder="请输入文章标题" class="title"></input>
+    <textarea auto-focus name="textarea" class="textarea" /> -->
+  <van-cell-group>
+    <van-field
+      value="{{ title }}"
+      label="标题"
+      type="textarea"
+      placeholder="请输入标题"
+      autosize
+      border="{{ false }}"
+      name="title"
+    />
+  </van-cell-group>
+  <van-cell-group>
+    <van-field
+      value="{{ textarea }}"
+      label="内容"
+      type="textarea"
+      placeholder="请输入内容"
+      autosize
+      border="{{ false }}"
+      name="textarea"
+    />
+  </van-cell-group>
+   <van-cell-group wx:if="{{address}}">
+     <view class="location">
+     <van-icon name="location" />{{address}}
+     </view>
+   </van-cell-group>
+    <van-cell-group>
+    <block wx:if="{{image}}" >
       <view class="img">
           <image src="{{image}}"></image>
       </view>
     </block>
+   </van-cell-group>
+    
     <view class="isImport" >
      <text>设置为重要？</text>
      <view bindtap="isImportant" class="star">
@@ -39,7 +69,7 @@
         </van-popup>
         
    </view>
-    <button form-type="submit" type="primary" style="margin-top: 24rpx;">确认</button>
+   <view class="btn"> <button form-type="submit" type="primary" style="margin-top: 24rpx;">确认</button></view>
     <van-tabbar >
         <!-- <van-tabbar-item icon="clear" bindtap="clear"></van-tabbar-item> -->
         <van-tabbar-item icon="photo" bindtap="selectImg"></van-tabbar-item>

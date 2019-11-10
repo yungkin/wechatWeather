@@ -37,7 +37,8 @@
     "van-row": "vant-weapp/row",
     "van-col": "vant-weapp/col",
     "van-datetime-picker": "vant-weapp/datetime-picker",
-    "van-popup": "vant-weapp/popup"
+    "van-popup": "vant-weapp/popup",
+    "van-field": "vant-weapp/field"
   },
   "tabBar": {
       "color": "#a9b7b7",

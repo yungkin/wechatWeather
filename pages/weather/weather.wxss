@@ -209,7 +209,7 @@ animation: changColor 6s;
   margin: 10rpx 0;
    
   }
-.line{ width:90%;height: 2rpx; border: 1px solid #7070a5;margin: 20rpx;}
+.line{ width:90%;height: 2rpx; border: 1px solid rgb(49, 177, 228);margin: 20rpx;}
 .hide{
  display: none;
   transition: 2s;
@@ -221,7 +221,7 @@ animation: changColor 6s;
 .exponent{
   /* color: #800080; */
   color: #fff;
-  border-bottom: 1px solid #7070a5;
+  border-bottom: 1px solid rgb(49, 177, 228);
   font-size: 30rpx;
   letter-spacing: 4px;
   /* margin: 20rpx; */

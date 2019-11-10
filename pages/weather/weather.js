@@ -50,6 +50,9 @@ Page({
    */
  onLoad: function (options) {
    var that = this;
+   wx.showLoading({
+     title: '数据加载中',
+   })
    getWeather.loadWeatherData(function (data) {
      var results = data.results[0];
      var futureWeather = results.weather_data;
@@ -246,7 +249,7 @@ Page({
        var strTemp = Ftempfir[j] + "~" + Ftemplast[j] + "℉";
        that.data.Ftempre.push(strTemp);
      }
-
+     wx.hideLoading()
    });
   },
   LsAction: function(e){
@@ -270,8 +273,8 @@ Page({
      var that = this;
     wx.getSetting({
       success: (res) => {
-        console.log(res);
-        console.log(res.authSetting['scope.userLocation']);
+        // console.log(res);
+        // console.log(res.authSetting['scope.userLocation']);
         if (res.authSetting['scope.userLocation'] != undefined && res.authSetting['scope.userLocation'] != true) {//非初始化进入该页面,且未授权
           wx.showModal({
             title: '是否授权当前位置',
@@ -317,7 +320,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function (options) {
-    
+    wx.showLoading({
+      title: '数据加载中',
+    })
+    if (this.data.weatherData) {
+      wx.hideLoading()
+    }
   },
 
   /**

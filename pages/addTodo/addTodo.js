@@ -76,22 +76,48 @@ Page({
     console.log(e)
   },
   selectImg: function() {
-    wx.chooseImage({
-      success:res => {
-        // console.log(res.tempFilePaths)
-        wx.cloud.uploadFile({
-          cloudPath: `img_${Math.floor(Math.random()*1000000)}.png`,
-          filePath: res.tempFilePaths[0]
-        }).then( res =>{
-          // console.log(res.fileID)
-          this.setData({
-            image: res.fileID
-          })
-        }).catch( err => {
-          console.error(err)
+    wx.showToast({
+      title: '只能添加一张图片',
+      duration: 3000,
+      success: res => {
+        wx.chooseImage({
+          success: res => {
+            // console.log(res.tempFilePaths)
+            if(res.tempFilePaths.length>1){
+              for (let i = 0; i < res.tempFilePaths.length; i++) {
+                wx.cloud.uploadFile({
+                  cloudPath: `img_${Math.floor(Math.random() * 1000000)}.png`,
+                  filePath: res.tempFilePaths[i]
+                }).then(res => {
+                  // console.log(res)
+                  this.setData({
+                    image: res.fileID
+                  })
+                  // console.log(this.data.image)
+                }).catch(err => {
+                  console.error(err)
+                })
+              }
+            }else {
+              // console.log(1)
+              wx.cloud.uploadFile({
+                cloudPath: `img_${Math.floor(Math.random() * 1000000)}.png`,
+                filePath: res.tempFilePaths[0]
+              }).then(res => {
+                // console.log(res)
+                this.setData({
+                  image: res.fileID
+                })
+                // console.log(this.data.image)
+              }).catch(err => {
+                console.error(err)
+              })
+            }
+          },
         })
-      },
+      }
     })
+   
   },
   chooseLoc: function(e){
     wx.chooseLocation({
@@ -103,12 +129,23 @@ Page({
           address: res.address
         }
         this.pageData.locationObj = locObj
-        
+        this.setData({
+          address: res.name
+        })
       },
     })
   },
   bindFormSubmit(event){
-    // console.log(event.detail.value)
+    console.log(event.detail.value)
+    if (event.detail.value.title == null || event.detail.value.textarea == null){
+        wx.showToast({
+          title: '不能为空',
+          icon: "none",
+          duration: 2000
+        })
+      return false
+    }
+   
     todos.add({
       data: {
         title: event.detail.value.title,

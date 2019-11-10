@@ -19,3 +19,41 @@
 .usermotto {
   margin-top: 200px;
 }
+
+.conter{
+		width: 100%;
+		height: 100%;
+		padding-top: 250rpx;
+	}
+	.conter-text{
+		width: 100%;
+		height: 40rpx;
+		text-align: center;
+		font-size: 32rpx;
+		color: #333333;
+		
+	}
+	
+	.conter-img image{
+		width:100rpx;
+		height:100rpx;
+		margin-top: 40rpx;
+		left: 325rpx;
+	
+	}
+	.button{
+		background-color: transparent;
+	}
+
+  button{
+    background: rgb(19, 105, 139);
+    border: none;
+    width: 500rpx;
+    height: 90rpx;
+    text-align: center;
+    line-height: 90rpx;
+    color: white;
+    position: absolute;
+    top: 540rpx;
+    left: 125rpx;
+  }

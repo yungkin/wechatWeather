@@ -14,16 +14,23 @@
         <van-collapse value="{{ activeNames }}" bind:change="onSideChange" class="collapse">
         <van-collapse-item title="个人中心" name="1">
 
-          <block wx:if="{{userInfo}}">
+          <block wx:if="{{userInfo.avatarUrl}}"> 
           <view class="userinfo">
             <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
             <text class="userinfo-nickname">{{userInfo.nickName}}</text>
           </view>
           </block>
+          <block wx:else>
+          <navigator url="../index/index">
+              <image class="userinfo-avatar" src="cloud://production-d0x82.7072-production-d0x82-1300475364/project/user.png" mode="cover"></image>
+              <text class="userinfo-nickname">去获取微信头像昵称</text>
+          </navigator>
+            
+          </block>
           </van-collapse-item>
               
          <van-collapse-item title="重要事项" name="2" icon="star-o">
-              <block wx:for="{{tasks}}" wx:key="item.isImportant" wx:if="{{item.isImportant}}">
+              <block wx:for="{{tasks}}" wx:key="{{item.isImportant}}" wx:if="{{item.isImportant}}">
                 <navigator url="../todoInfo/todoInfo?id={{item._id}}">
                 <van-cell title="{{item.title}}" is-link  />
                 </navigator>
@@ -37,8 +44,7 @@
           </van-collapse-item>
             <van-collapse-item name="5">
             <view slot="title">帮助<van-icon name="question-o" /></view>
-              请在技艺七色公众号(微信号：
-RB_SKILL)反馈问题。
+              在线客服开发中
           </van-collapse-item>
          
           </van-collapse>

@@ -1,13 +1,40 @@
 <!--index.wxml-->
-<view class="container">
+<!-- <view class="container">
   <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view>
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view>
+</view> -->
+<!-- 
+<view class="conter">	
+			<view class="conter-text">
+				获取头像昵称
+			</view>
+			<view class="conter-img" style="position: relative;">
+				<image src="cloud://production-d0x82.7072-production-d0x82-1300475364/project/WeChats.png" mode="" style="position: absolute;"></image>
+				<button bindgetuserinfo="getUserInfo" open-type="getUserInfo" style="background-color: #ffffff;border: none;opacity: 0;height: 65px;">
+				</button>
+			</view>
+</view> -->
+<view class="conter">
+<!-- <view class="userinfo">
+  <open-data type="userAvatarUrl" class="userinfo-avatar"></open-data>
+    <open-data type="userNikcName"></open-data>
+  <open-data type="userGender" lang="zh_CN"></open-data>
+</view> -->
+
+  <view class="conter-text">
+    <view class="conter-img" style="position: relative;">
+				<image src="cloud://production-d0x82.7072-production-d0x82-1300475364/project/WeChats.png" mode="" style="position: absolute;"></image>
+    </view>
+    <button bindgetuserinfo="getUserInfo" open-type="getUserInfo" >
+          授权获取微信头像昵称
+    </button>
+		</view>	
 </view>
